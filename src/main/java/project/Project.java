@@ -23,5 +23,25 @@ public class Project {
             skills.add(skill);
         }
     }
+    public String getTitle()
+    {
+        return title;
+    }
+    public boolean satisfy(ArrayList<Skill> commingSkills)
+    {
+        if(commingSkills.size() != skills.size())
+            return false;
+        for (Skill skill : skills) {
+            boolean consist = false;
+            for(Skill commingSkill : commingSkills)
+            {
+                if(skill.getName().equals(commingSkill.getName()))
+                   consist = true;
+            }
+            if(!consist)
+                return false;
+        }
+        return true;
+    }
 
 }

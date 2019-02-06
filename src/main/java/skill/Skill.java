@@ -13,4 +13,8 @@ public class Skill {
         name = skillInfo.getString(SkillsConfig.NAME);
         points = skillInfo.getInt(SkillsConfig.POINTS);
     }
+    public String getName()
+    {
+        return name;
+    }
 }

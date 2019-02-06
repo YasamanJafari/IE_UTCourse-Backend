@@ -1,6 +1,5 @@
 package user;
 
-import config.Commands;
 import config.UserConfig;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -20,5 +19,13 @@ public class User {
             Skill skill = new Skill((JSONObject) skillsInfo.get(i));
             skills.add(skill);
         }
+    }
+    public String getUsername()
+    {
+        return username;
+    }
+    public ArrayList<Skill> getSkills()
+    {
+        return skills;
     }
 }
