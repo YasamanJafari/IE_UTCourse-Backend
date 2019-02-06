@@ -17,4 +17,8 @@ public class Skill {
     {
         return name;
     }
+    public int getPoints()
+    {
+        return points;
+    }
 }
