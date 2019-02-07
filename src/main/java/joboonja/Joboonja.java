@@ -54,6 +54,7 @@ public class Joboonja {
         }
 
         int maxAuctionRate = 0;
+        long minOffer = 0;
         boolean firstVisited = false;
         User winner = null;
 
@@ -72,8 +73,15 @@ public class Joboonja {
             if(!firstVisited)
             {
                 maxAuctionRate = auctionRate;
+                minOffer = bid.getOffer();
                 firstVisited = true;
                 winner = user;
+            }
+            else if(auctionRate == maxAuctionRate){
+                if(bid.getOffer() < minOffer){
+                    minOffer = bid.getOffer();
+                    winner = user;
+                }
             }
             else if(auctionRate > maxAuctionRate)
             {
