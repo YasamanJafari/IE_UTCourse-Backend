@@ -15,11 +15,16 @@ public class Project {
 //    private List <Bid> bids;
 //    private User winner;
 
-    public Project(String _title, long _budget, HashMap <String, UserSkill> _skills)
+
+    public Project(String id, String title, String description, String imageURL, long budget, HashMap <String, UserSkill> skills, long deadline)
     {
-        title = _title;
-        budget = _budget;
-        skills = _skills;
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.imageURL = imageURL;
+        this.budget = budget;
+        this.skills = skills;
+        this.deadline = deadline;
     }
 
     public String getTitle()
@@ -27,7 +32,11 @@ public class Project {
         return title;
     }
 
+
+    public String getID() { return id; }
+
     public HashMap<String, UserSkill> getSkills() { return skills; }
+
 
     public long getBudget()
     {
