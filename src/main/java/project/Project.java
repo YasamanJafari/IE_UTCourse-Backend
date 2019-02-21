@@ -1,6 +1,7 @@
 package project;
 
-import skill.Skill;
+import skill.UserSkill;
+
 import java.util.HashMap;
 
 public class Project {
@@ -9,12 +10,13 @@ public class Project {
     private String description;
     private String imageURL;
     private long budget;
-    private HashMap<String, Skill> skills;
+    private HashMap<String, UserSkill> skills;
     private long deadline;
 //    private List <Bid> bids;
 //    private User winner;
 
-    public Project(String id, String title, String description, String imageURL, long budget, HashMap <String, Skill> skills, long deadline)
+
+    public Project(String id, String title, String description, String imageURL, long budget, HashMap <String, UserSkill> skills, long deadline)
     {
         this.id = id;
         this.title = title;
@@ -30,21 +32,23 @@ public class Project {
         return title;
     }
 
+
     public String getID() { return id; }
 
-    public HashMap<String, Skill> getSkills() { return skills; }
+    public HashMap<String, UserSkill> getSkills() { return skills; }
+
 
     public long getBudget()
     {
         return budget;
     }
 
-    public boolean checkSatisfaction(HashMap<String, Skill> userSkills, long bidAmount)
+    public boolean checkSatisfaction(HashMap<String, UserSkill> userSkills, long bidAmount)
     {
         if(userSkills.size() < skills.size())
             return false;
 
-        for (Skill skill : skills.values()) {
+        for (UserSkill skill : skills.values()) {
             String skillName = skill.getName();
             if(!userSkills.containsKey(skillName))
                 return false;
