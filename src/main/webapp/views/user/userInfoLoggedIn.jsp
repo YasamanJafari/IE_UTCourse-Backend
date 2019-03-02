@@ -26,13 +26,15 @@
             </ul>
         </li>
         Add Skill:
-        <form action="" method="">
-            <select name="">
-                <option value="CSS">CSS</option>
-                <option value="C++">C++</option>
-                <!-- ... -->
+        <form action="/addSkill" method="post">
+            <select name="skill">
+                <c:forEach var="skill" items="${availableSkills}">
+                    <option value="${skill.name}">
+                        <c:out value="${skill.name}"/>
+                    </option>
+                </c:forEach>
             </select>
-            <button>Add</button>
+            <input type="submit" value="Add"/>
         </form>
     </div>
 </body>
