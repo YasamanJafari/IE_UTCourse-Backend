@@ -16,10 +16,13 @@ public class SkillRepo {
     private SkillRepo() {
         skills = new ArrayList<Skill>();
     }
+
+
     public void addNewSkills(ArrayList<Skill> skillsToAdd)
     {
         skills.addAll(skillsToAdd);
     }
+
     public boolean contains(String skillName)
     {
         for (Skill skill :
