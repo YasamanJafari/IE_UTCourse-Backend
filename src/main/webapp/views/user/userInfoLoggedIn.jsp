@@ -17,9 +17,10 @@
                 <c:forEach var="skill" items="${skills}">
                     <li>
                         <c:out value="${skill.name} : ${skill.points}"/>
-                        <form action="/endorse" method="POST">
+                        <form action="/deleteSkill" method="POST">
                             <input type="hidden" name="skill" value="${skill.name}"/>
                             <input type="hidden" name="id" value="${user.id}"/>
+                            <button> Delete </button>
                         </form>
                     </li>
                 </c:forEach>
