@@ -32,7 +32,6 @@ public class Project {
         return title;
     }
 
-
     public String getID() { return id; }
 
     public HashMap<String, UserSkill> getSkills() { return skills; }
