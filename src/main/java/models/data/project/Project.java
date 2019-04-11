@@ -34,6 +34,10 @@ public class Project {
 
     public String getID() { return id; }
 
+    public long getDeadline() {
+        return deadline;
+    }
+
     public HashMap<String, UserSkill> getSkills() { return skills; }
 
 
