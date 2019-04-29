@@ -4,7 +4,7 @@ import models.data.bid.Bid;
 import models.data.bid.mapper.BidMapper;
 import config.AuctionConfig;
 import models.data.project.Project;
-import models.data.project.ProjectRepo;
+import models.data.project.mapper.ProjectMapper;
 import models.data.skill.UserSkill;
 import models.data.user.User;
 import models.data.user.mapper.UserMapper;
@@ -27,11 +27,11 @@ public class Auction {
         boolean firstVisited = false;
         User winner = null;
         BidMapper bidMapper = BidMapper.getInstance();
+        ProjectMapper projectMapper = ProjectMapper.getInstance();
         UserMapper userMapper = UserMapper.getInstance();
-        ProjectRepo projectRepo = ProjectRepo.getInstance();
 
         try {
-            project = projectRepo.getProjectByProjectID(projectTitle);
+            project = projectMapper.getProjectByProjectID(projectTitle);
 
             for(Bid bid : bidMapper.getBidsOfProject(projectTitle)) {
 
