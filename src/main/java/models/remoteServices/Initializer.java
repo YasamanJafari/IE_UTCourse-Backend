@@ -3,7 +3,7 @@ package models.remoteServices;
 import models.data.bid.mapper.BidMapper;
 import models.data.connectionPool.ConnectionPool;
 import models.data.project.mapper.ProjectMapper;
-import models.data.user.UserRepo;
+import models.data.user.mapper.UserMapper;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -20,7 +20,7 @@ public class Initializer implements ServletContextListener {
         ProjectMapper.getInstance();
         SkillInitializer.initSkills();
         ProjectInitializer.initProjects();
-        UserRepo.getInstance().addDefaultUser();
+        UserMapper.getInstance().addDefaultUser();
     }
 
     @Override
