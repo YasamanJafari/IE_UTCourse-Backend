@@ -84,10 +84,6 @@ public class BidMapper extends Mapper<Bid, String> {
         return null;
     }
 
-    @Override
-    protected String getDeleteStatement() {
-        return null;
-    }
 
     @Override
     protected ArrayList<String> getCreateTableStatement() {
