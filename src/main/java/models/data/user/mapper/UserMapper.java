@@ -8,10 +8,7 @@ import models.data.mapper.Mapper;
 import models.data.skill.UserSkill;
 import models.data.user.User;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -81,6 +78,11 @@ public class UserMapper extends Mapper<User, String> implements IUserMapper{
     @Override
     public String getInsertStatement() {
         return "INSERT ";
+    }
+
+    @Override
+    public void fillInsertStatement(PreparedStatement stmt, User object) throws SQLException {
+
     }
 
     @Override
