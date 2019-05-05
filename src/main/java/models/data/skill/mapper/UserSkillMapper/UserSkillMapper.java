@@ -3,13 +3,12 @@ package models.data.skill.mapper.UserSkillMapper;
 import config.DatabaseColumns;
 import exceptions.DataBaseError;
 import exceptions.DuplicateEndorse;
+import config.ProjectServiceConfig;
 import models.data.connectionPool.ConnectionPool;
 import models.data.mapper.Mapper;
-import models.data.skill.Skill;
 import models.data.skill.UserSkill;
 
 import java.sql.*;
-import java.text.MessageFormat;
 import java.util.ArrayList;
 
 public class UserSkillMapper extends Mapper<UserSkill, String> implements IUserSkillMapper {
@@ -27,6 +26,28 @@ public class UserSkillMapper extends Mapper<UserSkill, String> implements IUserS
         }
     }
 
+    @Override
+    public void deleteUserSkill(String name) {
+        try (Connection con = ConnectionPool.getConnection();
+             PreparedStatement stmt = con.prepareStatement(getDeleteUserSkillStatement())
+        ) {
+            stmt.setString(1, name);
+            stmt.setString(2, ProjectServiceConfig.USER_ID);
+            try {
+                stmt.execute();
+            } catch (SQLException ex) {
+                System.out.println("error in Mapper.findByID query.");
+                throw ex;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private String getDeleteUserSkillStatement() {
+        return "DELETE FROM UserSkill " +
+                "WHERE name = ? AND usid = ? ";
+    }
 
     public ArrayList<UserSkill> getUserSkills(String userId) throws SQLException {
         return findListForUser(userId, getUserSkillsStatement());
